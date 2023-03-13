@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+<body>
+
+<div class="container">
+    <div class="sidenav">
+    <img src="{% static 'image/service.png' %}" alt="icon" style="vertical-align:middle">
+    <a href="#">Home</a>
+    <a href="{% url 'make_appointment_step_one' %}">Book Appointment</a>
+    <a href="#">Services</a>
+    <a href="#">Calendar</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="#">Login</a>
+    {% endif %}
+</div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+<footer class="bottom">
+    <div class="footer">
+        <p>© 2023 Modestas Baronas</p>
+    </div>
+</footer>
+</body>
+</html>

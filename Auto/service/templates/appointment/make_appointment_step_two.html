@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Make Appointment - Step 2</h1>
+  <p>Please provide your car details to complete your appointment registration.</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Register Appointment">
+  </form>
+{% endblock %}
